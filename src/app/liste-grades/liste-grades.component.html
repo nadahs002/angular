@@ -1,0 +1,39 @@
+
+<div class="container">
+    <app-update-grade [grade]="updatedG" (gradeUpdated)= "gradeUpdated($event)"></app-update-grade>
+
+    
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+          <tr>
+            <th>Id</th>
+            <th>Nom Grade</th>
+          </tr>
+
+          <tbody *ngFor="let g of grade">
+            <tr>
+            <td>{{g.idG}}</td>
+            <td>{{g.nomG}}</td>
+            <td><a class="btn btn-success" (click)="updateG(g)">Editer</a></td>
+            </tr>
+            </tbody>
+
+            
+            
+
+        <!-- <tbody >
+          <tr >
+            <td>{{ grade[0].idG }}</td>
+            <td>{{ grade[0].nomG }}</td>
+          </tr>
+
+          <tr >
+            <td>{{ grade[1].idG }}</td>
+            <td>{{ grade[1].nomG }}</td>
+          </tr>
+        </tbody> -->
+      </table>
+    </div>
+  </div>
+</div>

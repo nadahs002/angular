@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+
+            <table class="table table-striped">
+                <tr> <th>Id</th><th>Nom</th> <th>Salaire</th> <th>Date recrutement </th> <th>Grade</th> <th>Image</th> </tr>
+                <tbody *ngFor="let employe of employes">
+                <tr >
+                <td>{{employe.idEmploye}}</td>
+                <td><img class="card-img-top img-responsive"
+                    src = "{{employe.imageStr}}"
+                    style = "height :50px;width:100px">
+                    </td>
+                <td>{{employe.nomEmploye}}</td>
+                <td>{{employe.salaireEmploye}}</td>
+                <td>{{employe.date | date:'dd/MM/yyyy'}}</td>
+                <td>{{employe.grade!.nomG}}</td>
+                <td><a *ngIf="authService.isAdmin()"
+                    class="btn btn-danger" (click)="supprimerEmploye(employe)">Supprimer</a></td>
+                    <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateEmploye',employe.idEmploye]">Modifier</a></td>
+                    
+                </tr>
+                </tbody>
+                
+            </table>
+           
+        </div>
+    </div>
+</div>

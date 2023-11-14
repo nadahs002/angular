@@ -1,0 +1,41 @@
+<div class="container">
+    <!-- <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Employe </label>
+        <input type="text" class="form-control" [(ngModel)]="nomEmploye" name="nomEmploye" class="form-control">
+        <button type="submit" (click)="rechercherEmps()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+        </div>
+        </form> -->
+
+
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2 mt-2 ">
+            <label>Nom Employe en tapant</label>
+            <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+            </div>
+            </form>
+
+     
+    <div class="card shadow mb-4">
+
+        <div class="card-body">
+
+            <table class="table table-striped">
+                <tr> <th>Id</th><th>Nom</th> <th>Salaire</th> <th>Date recrutement </th> <th>Grade</th> </tr>
+                <tbody *ngFor="let employe of employes">
+                <tr >
+                <td>{{employe.idEmploye}}</td>
+                <td>{{employe.nomEmploye}}</td>
+                <td>{{employe.salaireEmploye}}</td>
+                <td>{{employe.date | date:'dd/MM/yyyy'}}</td>
+                <td>{{employe.grade!.nomG}}</td>
+                <td><a class="btn btn-danger" (click)="supprimerEmploye(employe)">Supprimer</a></td>
+                <td><a class="btn btn-success" [routerLink]="['/updateEmploye',employe.idEmploye]">Modifier</a></td>
+                </tr>
+                </tbody>
+                
+            </table>
+           
+        </div>
+    </div>
+</div>
